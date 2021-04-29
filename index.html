@@ -1,30 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>BikeWatch(TBD)</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link
+rel="stylesheet"
+href="https://unpkg.com/purecss@2.0.5/build/pure-min.css"
+integrity="sha384-G9DpmGxRIF6tpgbrkZVcZDeIomEU22LgTguPAI739bbKytjPE/kHTK5YxjJAAEXC"
+crossorigin="anonymous"
+/>
+<link
+rel="stylesheet"
+href="https://unpkg.com/purecss@2.0.5/build/grids-responsive-min.css"
+/>
+<link rel="stylesheet" href="./assets/css/style.css" />
+<title>BikeWatch</title>
 </head>
+
+
 <body>
-    <header>
-        <!--If We want to put Header of any kind-->
-    </header>
-    <section class="userInputParam" id="inputParam">
-        <label>Search</label>
-        <input type="text" id="searchTerm" placeholder="Input Address or zip code" />
-        <button>Search</button>
-        <button>Switch view</button>
-    </section>
-    <section class="searchResult" id="searchResult">
 
-    </section>
-    <footer>
-        <!--If we want to put footer of any kind-->
-    </footer>
+<div class="pure-g">
 
-    <script src="./assets/js/script.js"></script>
+<div class="pure-u-24-24"> 
+<header>
+<nav>
+<img src="assets/images/logo.svg" height="64" alt="Crime Location">
+</nav>
+</header>
+</div>
+
+
+<!-- this is the main content-->
+
+<main>
+   
+    <div class="pure-u-24-24">
+
+        <h1>How safe is my bike?</h1>
+
+    <!-- this is the search box-->
+            <form class="pure-form">
+                <section class="userInputParam" id="inputParam">
+                <input
+                type="text"
+                id="searchTerm"
+                placeholder="Input Address or zip code"
+                />
+                <button class="pure-button">
+               Search
+                </button>
+
+                <button class="pure-button">Switch View</button>
+
+           </form>
+
+    </div>
+
+ <!-- this is intro text-->
+<div class="pure-u-24-24">
+
+
+<div class="intro-paragraph">
+
+        <p >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+        do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+</div>
+
+</div>
+
+
+ <!-- these are the radio buttons and checkboxes-->
+
+
+<div class="pure-u-24-24"  >
+<form class="pure-form" >
+<div id="views">
+<label for="checkbox-radio-option-two" class="pure-radio">
+<input type="radio" id="checkbox-radio-option-one" name="optionsRadios" value="option1" checked="" /> Map View</label>
+
+<label for="checkbox-radio-option-three" class="pure-radio">
+<input type="radio" id="checkbox-radio-option-two" name="optionsRadios" value="option2" /> List View</label>
+
+<label for="checkbox-radio-option-three" class="pure-radio">
+<input type="radio" id="checkbox-radio-option-three" name="optionsRadios" value="option2" /> Both<label>
+
+</div >
+</form>
+
+<form class="pure-form" >
+<div id="types">
+
+<label for="checkbox-radio-option-one" class="pure-checkbox">
+<input type="checkbox" id="checkbox-radio-option-five" value="" />
+<img src="assets/images/pin-orange.svg" height="24px" alt="Crime Location"> Crime</label>
+
+<label for="checkbox-radio-option-one" class="pure-checkbox">
+<input type="checkbox" id="checkbox-radio-option-six" value="" />
+<img src="assets/images/pin-red.svg" height="24px" alt="Accident Location"> Accidents</label>
+
+
+<label for="checkbox-radio-option-one" class="pure-checkbox">
+<input type="checkbox" id="checkbox-radio-option-seven" value="" />
+<img src="assets/images/pin-purple.svg" height="24px" alt="Bike Theft Location"> Theft</label>
+</form>
+
+</div>
+
+
+ <!-- these are placeholders for the search results map-->
+
+
+<div class="pure-u-24-24"  >
+
+<section class="searchResult" id="searchResult">
+<div class="map">
+<img src="https://www.fillmurray.com/640/360" ></img>
+
+</div>
+
+ <!-- these are placeholders for the search results list-->
+
+
+
+
+<ul id="results-bike">
+    <img src="assets/images/bike-orange-small.svg" height="36px" alt="Bike Theft Location"> 
+    <h3>Bike Crimes</h3>
+<li>
+    quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat.
+</li>
+
+<li>
+    quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat.
+    </li>   
+</ul>
+
+
+<ul id="results-accidents">
+    <img src="assets/images/bike-red-small.svg" height="36px" alt="Bike Accidents Location"> 
+    <h3>Bike Accidents</h3>
+<li>
+    quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat.
+</li>
+
+<li>
+    quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat.
+    </li>
+</ul>
+
+
+
+
+
+<ul id="results-theft">
+    <img src="assets/images/bike-purple-small.svg" height="36px" alt="Bike Theft Location"> 
+    <h3>Bike Accidents</h3>
+<li>
+    quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat.
+</li>
+
+<li>
+    quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat.
+    </li>
+</ul>
+
+</section>
+
+</div>
+
+</main>
+
+
+</div>
+
+
+<script src="./assets/js/script.js"></script>
+
+<!-- closing tags for the main grid and header -->
+
+
+
+
 </body>
 </html>
