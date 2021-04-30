@@ -1,7 +1,8 @@
 /*Global variables */
 var searchTerm = document.getElementById("searchTerm");
 var limitVal = 5; /* temp field for testing, can be replaced with user input*/
-var searches = [];
+var searches = []; /*Array of all searches*/
+var searchResult = [];/*Array of search objects found with single search*/
 /*Search Button function */
 var search = function(){
     fetch (
@@ -35,12 +36,12 @@ var search = function(){
                             occurred_at: incidentResponse.incident.occurred_at,
                             coordinates: incident.geometry.coordinates
                         };
-                        searches.push(incidentObject);
+                        searchResult.push(incidentObject);
                     })
                     .catch(error => console.log(error));
                 }
             });
-        console.log(searches);  
+        console.log(searchResult);  
     })
     .catch(error => console.log(error));
 }
