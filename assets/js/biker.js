@@ -33,7 +33,7 @@ function getIncidentsByCoordinates(){
         console.log(incidentResponse.features);
         var incidents = incidentResponse.features;
         incidents.forEach(incident => {
-            fetch('https://bikewise.org:443/api/v2/incidents/'+incidentDetails.incident.id)
+            fetch('https://bikewise.org:443/api/v2/incidents/'+incidentDetails.incidet.id)
             .then(function(incidentDetails) {
                 return incidentDetails.json();
             })
