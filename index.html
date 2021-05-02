@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css" integrity="sha384-G9DpmGxRIF6tpgbrkZVcZDeIomEU22LgTguPAI739bbKytjPE/kHTK5YxjJAAEXC" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css" />
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/grids-responsive-min.css"/>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>BikeWatch</title>
@@ -26,13 +26,12 @@
         <div class="pure-u-24-24">
             <h1>How safe is my bike?</h1>
 
-            <!-- this is the search box-->
-            <form class="pure-form">
-                <section class="userInputParam" id="inputParam">
-                <input type="text" id="searchTerm" placeholder="Input Address or zip code"/>
-                <button class="pure-button" onclick="search()">Search</button>
+            <section class="userInputParam" id="inputParam">
+                <!-- this is the search box-->
+                <input type="text" id="searchTerm" placeholder="Enter a city, address or zip code"/>
+                <button class="pure-button" id="search-button">Search</button>
                 <button class="pure-button">Switch View</button>
-            </form>
+            </section>
         </div>
 
         <!-- this is intro text-->
