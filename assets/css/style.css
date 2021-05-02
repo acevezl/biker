@@ -16,9 +16,10 @@
   body {
     margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--dark-blue);
+    /* background-image: url("assets/images/bike-splash-large.png"); */
   }
-  
+
+ 
   .pure-img-responsive {
     max-width: 100%;
     height: auto;
@@ -35,15 +36,24 @@
   
   nav {
     color: var(--dark-blue);
+    text-align: center;
+
   }
+   
   
   main {
     background-color: var(--dark-blue);
+   
+   
+    
   }
+
+
   
   h1 {
     color: var(--white);
     text-align: center;
+    margin-top: 60px;
   }
   
   h2 {
@@ -71,17 +81,32 @@
     color: var(--white);
   }
   
+  .userInputParam{
+    text-align: center;
+   
+    
+
+
+  }
   #searchTerm {
     height: 50px;
     width: 70%;
     padding: 15px;
     border-radius: 25px;
     font-size: 18px;
-    color: var(--dark-blue);
+    
     border: 0;
     margin-bottom: 25px;
     margin-top: 15px;
   }
+  ::placeholder { 
+    color: #03c04a;
+    opacity: 1;
+  }
+ 
+
+
+
   
   input:focus,
   select:focus,
@@ -103,20 +128,20 @@
   .searchResult {
     margin-top: 50px;
   }
-  
-  .pure-radio input:checked {
-    height: 20px;
-    width: 20px;
-    border-radius: 5px;
-  
-    vertical-align: middle;
+
+  .pure-button{
+    width:150px;
+    margin:5px;
+    background-color: #03c04a;
+    border-radius: 3px;
+    color: #ffffff;
+
   }
-  
-  .pure-form .pure-checkbox,
-  .pure-form .pure-radio {
-    padding: 10px;
-  }
-  
+
+
+
+
+
   ul,
   li {
     color: var(--white);
