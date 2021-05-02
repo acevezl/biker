@@ -1,11 +1,25 @@
 /*Global variables */
 var searchTerm = document.getElementById("searchTerm");
-var limitVal = 25; /* temp field for testing, can be replaced with user input*/
+var limitVal = 100; /* temp field for testing, can be replaced with user input*/
 var searches = []; /*Array of all searches*/
 var searchResults = [];/*Array of search objects found with single search*/
 
 var searchBtnEl = document.querySelector('#search-button');
 searchBtnEl.addEventListener('click',searchIncidents);
+
+const API_KEY = '';
+
+const markerIcons = {
+    Crime: {
+      icon: './assets/images/pin-orange.svg',
+    },
+    Accident: {
+      icon: './assets/images/pin-red.svg',
+    },
+    Theft: {
+      icon:  './assets/images/pin-purple.svg',
+    },
+};
 
 var userLocation = localStorage.getItem('userLocation')? JSON.parse(localStorage.getItem('userLocation')) : {
     lat: 37.3394,
@@ -28,7 +42,7 @@ function searchIncidents(target) {
     
     fetch (
         /* Google geocode API key and query*/
-        'https://maps.googleapis.com/maps/api/geocode/json?address='+searchTerm+'&key=AIzaSyABQZCTYohsYN9mu9c1-y-nKBrfjbRORqE'
+        'https://maps.googleapis.com/maps/api/geocode/json?address='+searchTerm+'&key='+API_KEY
     ).then (function(geoCodeResponse) {
         return geoCodeResponse.json();
     })
@@ -70,7 +84,7 @@ function searchIncidents(target) {
                         };
                         searchResults.push(incidentObject);
                         console.log(incident.geometry.coordinates[0]+' '+incident.geometry.coordinates[1])
-                        addMarker(incident.geometry.coordinates[1], incident.geometry.coordinates[0]);
+                        addMarker(incident.geometry.coordinates[1], incident.geometry.coordinates[0],incidentResponse.incident.type);
                     })
                     .catch(error => console.log(error));
                 }
@@ -86,10 +100,12 @@ function storeIncidents(data) {
     localStorage.setItem('incidents',JSON.stringify(data));
 }
 
-function addMarker (lat,lon) {
+function addMarker (lat,lon, type) {
+    console.log(markerIcons[type].icon);
     var marker = new google.maps.Marker({
         position: {lat: lat,lng: lon},
         map: map,
+        icon: markerIcons[type].icon
       }); 
 }
 
