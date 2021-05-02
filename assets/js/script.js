@@ -10,14 +10,14 @@ searchBtnEl.addEventListener('click',searchIncidents);
 const API_KEY = '';
 
 const markerIcons = {
-    Crime: {
-      icon: './assets/images/pin-orange.svg',
+    Hazard: {
+      icon: './assets/images/pin-orange.png',
     },
     Accident: {
-      icon: './assets/images/pin-red.svg',
+      icon: './assets/images/pin-red.png',
     },
     Theft: {
-      icon:  './assets/images/pin-purple.svg',
+      icon:  './assets/images/pin-purple.png',
     },
 };
 
@@ -47,7 +47,6 @@ function searchIncidents(target) {
         return geoCodeResponse.json();
     })
     .then(function(geoCode){
-        console.log(geoCode);
         userLocation.lat = geoCode.results[0].geometry.location.lat;
         userLocation.lon = geoCode.results[0].geometry.location.lng;
         proximity=userLocation.lat+','+userLocation.lon;
@@ -62,7 +61,6 @@ function searchIncidents(target) {
            return response.json();
         })
         .then(function(response){
-            console.log(response);
             var incidents = response.features;
             incidents.forEach(incident => {
                 var incidentType = incident.properties.type;
@@ -83,13 +81,12 @@ function searchIncidents(target) {
                             coordinates: incident.geometry.coordinates
                         };
                         searchResults.push(incidentObject);
-                        console.log(incident.geometry.coordinates[0]+' '+incident.geometry.coordinates[1])
-                        addMarker(incident.geometry.coordinates[1], incident.geometry.coordinates[0],incidentResponse.incident.type);
+                        addMarker(incidentObject);
                     })
                     .catch(error => console.log(error));
                 }
             });
-
+            console.log(searchResults);
             storeIncidents(searchResults);
         })
         .catch(error => console.log(error));
@@ -100,12 +97,15 @@ function storeIncidents(data) {
     localStorage.setItem('incidents',JSON.stringify(data));
 }
 
-function addMarker (lat,lon, type) {
-    console.log(markerIcons[type].icon);
+function addMarker (incident) {
+    console.log(incident.title);
     var marker = new google.maps.Marker({
-        position: {lat: lat,lng: lon},
+        position: {lat: incident.coordinates[1],lng:incident.coordinates[0]},
         map: map,
-        icon: markerIcons[type].icon
+        icon: markerIcons[incident.type].icon,
+        title: incident.title,
+        scale: 2,
+        animation: google.maps.Animation.DROP
       }); 
 }
 
@@ -129,7 +129,7 @@ let map;
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: userLocation.lat, lng: userLocation.lon },
-        zoom: 10,
+        zoom: 15,
     });
 
 }
