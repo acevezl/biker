@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css" />
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/grids-responsive-min.css"/>
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABQZCTYohsYN9mu9c1-y-nKBrfjbRORqE&callback=initMap" 
+    type="text/javascript"></script>
     <title>BikeWatch</title>
 </head>
 <body>
@@ -26,12 +28,12 @@
         <div class="pure-u-24-24">
             <h1>How safe is my bike?</h1>
 
-            <section class="userInputParam" id="inputParam">
+            <form class="userInputParam" id="inputParam">
                 <!-- this is the search box-->
                 <input type="text" id="searchTerm" placeholder="Enter a city, address or zip code"/>
                 <button class="pure-button" id="search-button">Search</button>
                 <button class="pure-button">Switch View</button>
-            </section>
+            </form>
         </div>
 
         <!-- this is intro text-->
@@ -81,7 +83,7 @@
         <!-- these are placeholders for the search results map-->
         <div class="pure-u-24-24"  >
             <section class="searchResult" id="searchResult">
-                <div class="map">
+                <div class="map" id="map">
                     <img src="https://www.fillmurray.com/640/360" ></img>
                 </div>
 
