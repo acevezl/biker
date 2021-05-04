@@ -7,17 +7,17 @@ var searchResults = [];/*Array of search objects found with single search*/
 var searchBtnEl = document.querySelector('#search-button');
 searchBtnEl.addEventListener('click',searchIncidents);
 
-const API_KEY = '';
+const API_KEY = 'AIzaSyAkyWj8KKqiOI4fXLQMJASgN7smEGqGPAc';
 
 const markerIcons = {
     Hazard: {
-      icon: './assets/images/pin-orange.png',
+      icon: './assets/images/pin-16-orange.png',
     },
     Accident: {
-      icon: './assets/images/pin-red.png',
+      icon: './assets/images/pin-16-red.png',
     },
     Theft: {
-      icon:  './assets/images/pin-purple.png',
+      icon:  './assets/images/pin-16-purple.png',
     },
 };
 
@@ -104,8 +104,7 @@ function addMarker (incident) {
         map: map,
         icon: markerIcons[incident.type].icon,
         title: incident.title,
-        scale: 2,
-        animation: google.maps.Animation.DROP
+        scale: 2
       }); 
 }
 
@@ -129,7 +128,7 @@ let map;
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: userLocation.lat, lng: userLocation.lon },
-        zoom: 15,
+        zoom: 12,
     });
 
 }
