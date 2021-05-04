@@ -15,24 +15,29 @@
 
 <div class="pure-g">
 
-    <div class="pure-u-24-24"> 
+    <div class="pure-u-24-24" > 
         <header>
             <nav>
-                <img src="assets/images/logo.svg" height="64" alt="Crime Location">
+               <img class="pure-img" src="assets/images/logo.svg"  alt="BikeWatch">
             </nav>
         </header>
     </div>
 
     <!-- this is the main content-->
     <main>
-        <div class="pure-u-24-24">
+        <div class="pure-u-24-24 banner" >
+
+        
+            
             <h1>How safe is my bike?</h1>
 
             <form class="userInputParam" id="inputParam">
                 <!-- this is the search box-->
                 <input type="text" id="searchTerm" placeholder="Enter a city, address or zip code"/>
+                <div class="pure-u-24-24">        
                 <button class="pure-button" id="search-button">Search</button>
                 <button class="pure-button">Switch View</button>
+                </div>
             </form>
         </div>
 
@@ -40,45 +45,14 @@
         <div class="pure-u-24-24">
             <div class="intro-paragraph">
                 <p >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
+                BikeWatch. A simple tool that helps all bikers plan ahead for that next excursion. We know you're ready to jump on that trail, but first, let's get you some local area knowledge.  Type in a location and we can return the most recent information about nearby bike related accidents, crime or theft. Be proactive about protecting yourself, your family and your property. 
+                
             </div>
+        <!-- <div class="chevron" >  <img src="assets/images/chevron.png" ></img></div> -->
         </div>
 
-        <!-- these are the radio buttons and checkboxes-->
-        <div class="pure-u-24-24"  >
-            <form class="pure-form" >
-                <div id="views">
-                    <label for="checkbox-radio-option-two" class="pure-radio">
-                    <input type="radio" id="checkbox-radio-option-one" name="optionsRadios" value="option1" checked="" /> Map View</label>
-
-                    <label for="checkbox-radio-option-three" class="pure-radio">
-                    <input type="radio" id="checkbox-radio-option-two" name="optionsRadios" value="option2" /> List View</label>
-
-                    <label for="checkbox-radio-option-three" class="pure-radio">
-                    <input type="radio" id="checkbox-radio-option-three" name="optionsRadios" value="option2" /> Both<label>
-                </div >
-            </form>
-
-        <form class="pure-form" >
-            <div id="types">
-                <label for="checkbox-radio-option-one" class="pure-checkbox">
-                <input type="checkbox" id="checkbox-radio-option-five" value="" />
-                <img src="assets/images/pin-orange.svg" height="24px" alt="Crime Location"> Crime</label>
-
-                <label for="checkbox-radio-option-one" class="pure-checkbox">
-                <input type="checkbox" id="checkbox-radio-option-six" value="" />
-                <img src="assets/images/pin-red.svg" height="24px" alt="Accident Location"> Accidents</label>
 
 
-                <label for="checkbox-radio-option-one" class="pure-checkbox">
-                <input type="checkbox" id="checkbox-radio-option-seven" value="" />
-                <img src="assets/images/pin-purple.svg" height="24px" alt="Bike Theft Location"> Theft</label>
-            </div>
-        </form>
 
         <!-- these are placeholders for the search results map-->
         <div class="pure-u-24-24"  >
@@ -118,7 +92,7 @@
 
                 <ul id="results-theft">
                     <img src="assets/images/bike-purple-small.svg" height="36px" alt="Bike Theft Location"> 
-                    <h3>Bike Accidents</h3>
+                    <h3>Bike Theft</h3>
                     <li>
                         quis nostrud exercitation ullamco
                         laboris nisi ut aliquip ex ea commodo consequat.
