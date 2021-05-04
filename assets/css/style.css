@@ -16,7 +16,6 @@
 body {
   margin: 0 auto;
   font-family: Arial, Helvetica, sans-serif;
-
 }
 
 .pure-img-responsive {
@@ -35,30 +34,27 @@ header img {
 
 nav {
   color: var(--dark-blue);
-  text-align: center;
 }
 
-
+.pure-img {
+  width: 20em;
+  text-align: center;
+}
 
 main {
   background-color: var(--dark-blue);
-  
-  
 }
 
-.banner{
-  background: url('../images/banner.png');
+.banner {
+  background: url("../images/banner.png");
   background-size: cover;
   height: 400px;
-
 }
 
-
 h1 {
-  color: var(--white);
   text-align: center;
   margin-top: 60px;
-  color: var(--dark-blue);
+  color: var(--orange);
 }
 
 h2 {
@@ -72,8 +68,6 @@ p {
   text-align: center;
   margin: 15px;
 }
-
-
 
 .intro-paragraph {
   margin: auto;
@@ -108,7 +102,7 @@ p {
   opacity: 1;
 }
 
-.chevron{
+.chevron {
   text-align: center;
   margin-bottom: 5px;
 }
@@ -168,4 +162,61 @@ li {
 #map {
   height: 600px;
   width: 100%;
+}
+
+
+
+
+
+/* media queries */
+/* .pure-u-* always */
+/* ≥ 568px .pure-u-sm-* */
+@media screen and (max-width: 375px) {
+  header {
+    height: 40px;
+    background-color: var(--white);
+  }
+  .pure-button {
+    width: 300px;
+    margin: 5px;
+  }
+
+  .pure-img {
+width:200px;
+  }
+  .banner{
+    height: 350px;
+  }
+
+  h1{
+    font-size: 20px;
+  }
+
+  #searchTerm {
+    height: 40px;
+    width: 70%;
+    font-size: 16px;
+}
+
+
+
+
+@media screen and (min-width: 35.5em) {
+  header {
+    height: 60px;
+    background-color: var(--white);
+  }
+
+  .pure-button {
+    width: 150px;
+    margin: 5px;
+    background-color: var(--dark-blue);
+    border-radius: 3px;
+    color: #ffffff;
+  }
+
+  .intro-paragraph {
+    margin: auto;
+    max-width: 60%;
+  }
 }
