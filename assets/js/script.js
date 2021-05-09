@@ -1,8 +1,8 @@
 /*Global variables */
 var searchTerm = document.getElementById("searchTerm");
-var limitVal = 100; /* temp field for testing, can be replaced with user input*/
+var limitVal = 50; /* temp field for testing, can be replaced with user input*/
 var searches = []; /*Array of all searches*/
-var searchResults = [];/*Array of search objects found with single search*/
+var searchResults = localStorage.getItem('incidents')? JSON.parse(localStorage.getItem('incidents')) : [];/*Array of search objects found with single search*/
 
 var searchBtnEl = document.querySelector('#search-button');
 searchBtnEl.addEventListener('click',searchIncidents);
@@ -62,6 +62,7 @@ function searchIncidents(target) {
         })
         .then(function(response){
             var incidents = response.features;
+            searchResults = [];
             incidents.forEach(incident => {
                 var incidentType = incident.properties.type;
                 if (incidentType === "Theft" || incidentType === "Hazard" || incidentType === "Crash") { // We can replace this with a seperate function later if necessary
@@ -78,7 +79,7 @@ function searchIncidents(target) {
                             address: incidentResponse.incident.address,
                             description: incidentResponse.incident.description,
                             occurred_at: incidentResponse.incident.occurred_at,
-                            coordinates: incident.geometry.coordinates
+                            coordinates: [incident.geometry.coordinates[0], incident.geometry.coordinates[1]]
                         };
                         searchResults.push(incidentObject);
                         addMarker(incidentObject);
@@ -86,7 +87,6 @@ function searchIncidents(target) {
                     .catch(error => console.log(error));
                 }
             });
-            console.log(searchResults);
             storeIncidents(searchResults);
         })
         .catch(error => console.log(error));
@@ -95,11 +95,12 @@ function searchIncidents(target) {
 }
 
 function storeIncidents(data) {
+    console.log(data);
+    console.log(JSON.stringify(data));
     localStorage.setItem('incidents',JSON.stringify(data));
 }
 
 function addMarker (incident) {
-    console.log(incident.title);
     var marker = new google.maps.Marker({
         position: {lat: incident.coordinates[1],lng:incident.coordinates[0]},
         map: map,
