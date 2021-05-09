@@ -4,10 +4,26 @@ var limitVal = 100; /* temp field for testing, can be replaced with user input*/
 var searches = []; /*Array of all searches*/
 var searchResults = [];/*Array of search objects found with single search*/
 
-var searchBtnEl = document.querySelector('#search-button');
-searchBtnEl.addEventListener('click',searchIncidents);
+/*arrays to hold lists*/
+var hazardResults= [];
+var theftResults = [];
+var accidentResults =[];
 
-const API_KEY = 'AIzaSyAkyWj8KKqiOI4fXLQMJASgN7smEGqGPAc';
+/*list variables*/
+var results_hazard = document.querySelector("#results-hazard");
+var results_accident = document.querySelector("#results-accident");
+var results_theft = document.querySelector("#results-theft");
+
+
+var searchBtnEl = document.querySelector('#search-button');
+var switchBtnEl = document.querySelector('#switch-button');
+
+searchBtnEl.addEventListener('click',searchIncidents);
+switchBtnEl.addEventListener('click', buttonSwitch);
+
+
+
+const API_KEY = 'AIzaSyDv5fdWGZ4Lu5xCn9nq-OL_nvdXF-cPb8Q';
 
 const markerIcons = {
     Hazard: {
@@ -35,10 +51,61 @@ var userLocation = localStorage.getItem('userLocation')? JSON.parse(localStorage
 
 */
 
+function listResultLocations(){
+    var h= JSON.parse( localStorage.getItem("Hazards") );
+    var t= JSON.parse( localStorage.getItem("Thefts") );
+    var a= JSON.parse( localStorage.getItem("Accidents") );
+
+    while( results_theft.firstChild ){
+        results_theft.removeChild(results_theft.firstChild);
+    }
+    while( results_hazard.firstChild ){
+        results_hazard.removeChild(results_hazard.firstChild);
+    }
+    while( results_accident.firstChild ){
+        results_accident.removeChild(results_accident.firstChild);
+    }
+
+    for(var i = 0; i < h.length; i++){
+
+        var li = document.createElement("li");
+        var output1 = h[i];
+        li.innerHTML = output1;
+        results_hazard.appendChild(li);        
+    }
+
+    for(var i = 0; i < t.length; i++){
+        var li = document.createElement("li");
+        var output1 = t[i];
+        
+        li.innerHTML = output1;
+        results_theft.appendChild(li);        
+    }
+
+    for(var i = 0; i < a.length; i++){
+        var li = document.createElement("li");
+        var output1 = a[i];
+
+        li.innerHTML = output1;
+        results_accident.appendChild(li);        
+    }
+
+}
+
+function buttonSwitch(){
+
+}
+
 /*Search Button function */
 function searchIncidents(target) {
     target.preventDefault();
+
     var searchTerm = document.querySelector('#searchTerm').value;
+    localStorage.clear();
+    hazardResults= [];
+    theftResults = [];
+    accidentResults =[];
+    searchResults = [];
     
     fetch (
         /* Google geocode API key and query*/
@@ -80,26 +147,41 @@ function searchIncidents(target) {
                             occurred_at: incidentResponse.incident.occurred_at,
                             coordinates: incident.geometry.coordinates
                         };
+
                         searchResults.push(incidentObject);
                         addMarker(incidentObject);
+
+                        if(incidentObject.type === "Theft"){
+                            theftResults.push(incidentObject.title+", "+incidentObject.address);
+                        }
+                        else if(incidentObject.type === "Hazard"){
+                            hazardResults.push(incidentObject.address);      
+                        }
+                        else{
+                            accidentResults.push(incidentObject.address);        
+                        }
+                        storeIncidents();
+                        listResultLocations();
                     })
                     .catch(error => console.log(error));
                 }
+
             });
-            console.log(searchResults);
-            storeIncidents(searchResults);
         })
         .catch(error => console.log(error));
     })
     .catch(error => console.log(error));
 }
 
-function storeIncidents(data) {
-    localStorage.setItem('incidents',JSON.stringify(data));
+function storeIncidents() {
+    localStorage.setItem('incidents',JSON.stringify(searchResults));
+    localStorage.setItem("Hazards", JSON.stringify(hazardResults) );
+    localStorage.setItem("Thefts", JSON.stringify(theftResults) );
+    localStorage.setItem("Accidents", JSON.stringify(accidentResults) );
 }
 
 function addMarker (incident) {
-    console.log(incident.title);
+    //console.log(incident.title);
     var marker = new google.maps.Marker({
         position: {lat: incident.coordinates[1],lng:incident.coordinates[0]},
         map: map,
