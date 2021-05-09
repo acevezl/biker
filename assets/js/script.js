@@ -21,9 +21,7 @@ var switchBtnEl = document.querySelector('#switch-button');
 searchBtnEl.addEventListener('click',searchIncidents);
 switchBtnEl.addEventListener('click', buttonSwitch);
 
-
-
-const API_KEY = 'AIzaSyDv5fdWGZ4Lu5xCn9nq-OL_nvdXF-cPb8Q';
+const API_KEY = 'AIzaSyAkyWj8KKqiOI4fXLQMJASgN7smEGqGPAc';
 
 const markerIcons = {
     Hazard: {
