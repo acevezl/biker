@@ -34,15 +34,28 @@ After inputting a location within a search box. This application will provide me
 ### APIs Used
 * Bike wise
 * Google Maps
+* Pure CSS
 
 
 
 
 
-# Team,  this is the link to the google docs. we can delete this link in the readme when we 
-# are done with project
 
+# URL Link
+https://acevezl.github.io/biker/
+
+# GitHub - Application Repository
+https://github.com/acevezl/biker
+
+
+# Google Doc - Use for Coordination, ideation and planning
 https://docs.google.com/document/d/12dastZbK5hBTlQiCo4bTJOGBByiwzdECYVQIQv7ZSSk/edit?usp=sharing
+
+# Mock Ups -  Used for workflow grooming
+https://xd.adobe.com/view/6d309f33-0a09-41c3-ac91-4a14538771cc-3863/
+
+# Powerpoint Presentation for Demonstration with MVP and concepts for future integration
+https://docs.google.com/presentation/d/1yqjq3ggy6Ab9OPMcHVf2NCjQBMGdU-NRQvD2szCoyoY/edit#slide=id.gd3bf987b2c_0_119
 
 
 
