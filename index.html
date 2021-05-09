@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css" />
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/grids-responsive-min.css"/>
     <link rel="stylesheet" href="./assets/css/style.css" />
+<<<<<<< HEAD
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkyWj8KKqiOI4fXLQMJASgN7smEGqGPAc&callback=initMap" 
+=======
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv5fdWGZ4Lu5xCn9nq-OL_nvdXF-cPb8Q&callback=initMap" 
+>>>>>>> fcca3b3b511a1b1416cc41528e66295010832849
     type="text/javascript"></script>
     <title>BikeWatch</title>
 </head>
@@ -36,7 +40,7 @@
                 <input type="text" id="searchTerm" placeholder="Enter a city, address or zip code"/>
                 <div class="pure-u-24-24">        
                 <button class="pure-button" id="search-button">Search</button>
-                <button class="pure-button">Switch View</button>
+                <button class="pure-button" id="switch-button">Switch View</button>
                 </div>
             </form>
         </div>
@@ -62,46 +66,19 @@
                 </div>
 
                 <!-- these are placeholders for the search results list-->
-                <ul id="results-bike">
-                    <img src="assets/images/bike-orange-small.svg" height="36px" alt="Bike Theft Location"> 
-                    <h3>Bike Crimes</h3>
-                    <li>
-                        quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.
-                    </li>
-
-                    <li>
-                    quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat.
-                    </li>   
+                <img src="assets/images/bike-orange-small.svg" height="36px" alt="Bike Theft Location"> 
+                <h3>Bike Crimes</h3> 
+                <ul id="results-hazard">
                 </ul>
 
-                <ul id="results-accidents">
-                    <img src="assets/images/bike-red-small.svg" height="36px" alt="Bike Accidents Location"> 
-                    <h3>Bike Accidents</h3>
-                    <li>
-                        quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.
-                    </li>
-
-                    <li>
-                        quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.
-                    </li>
+                <img src="assets/images/bike-red-small.svg" height="36px" alt="Bike Accidents Location"> 
+                <h3>Bike Accidents</h3>
+                <ul id="results-accident">  
                 </ul>
 
-                <ul id="results-theft">
-                    <img src="assets/images/bike-purple-small.svg" height="36px" alt="Bike Theft Location"> 
-                    <h3>Bike Theft</h3>
-                    <li>
-                        quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.
-                    </li>
-
-                    <li>
-                        quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.
-                    </li>
+                <img src="assets/images/bike-purple-small.svg" height="36px" alt="Bike Theft Location"> 
+                <h3>Bike Theft</h3>
+                <ul id="results-theft">   
                 </ul>
 
             </section>
