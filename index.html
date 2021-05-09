@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/grids-responsive-min.css"/>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCCCwzk1wEljzgbwHxULY3zCWsBTSQlJc&callback=initMap" 
+    type="text/javascript"></script>
+    <title>BikeWatch</title>
+</head>
+<body>
+
+<div class="pure-g">
+
+    <div class="pure-u-24-24" > 
+        <header>
+            <nav>
+               <img class="pure-img" src="assets/images/logo.svg"  alt="BikeWatch">
+            </nav>
+        </header>
+    </div>
+
+    <!-- this is the main content-->
+    <main>
+        <div class="pure-u-24-24 banner" >
+
+        
+            
+            <h1>How safe is my bike?</h1>
+
+            <form class="userInputParam" id="inputParam">
+                <!-- this is the search box-->
+                <input type="text" id="searchTerm" placeholder="Enter a city, address or zip code"/>
+                <div class="pure-u-24-24">        
+                <button class="pure-button" id="search-button">Search</button>
+                <button class="pure-button">Switch View</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- this is intro text-->
+        <div class="pure-u-24-24">
+            <div class="intro-paragraph">
+                <p >
+                BikeWatch. A simple tool that helps all bikers plan ahead for that next excursion. We know you're ready to jump on that trail, but first, let's get you some local area knowledge.  Type in a location and we can return the most recent information about nearby bike related accidents, crime or theft. Be proactive about protecting yourself, your family and your property. 
+                
+            </div>
+        <!-- <div class="chevron" >  <img src="assets/images/chevron.png" ></img></div> -->
+        </div>
+
+
+
+
+        <!-- these are placeholders for the search results map-->
+        <div class="pure-u-24-24"  >
+            <section class="searchResult" id="searchResult">
+                <div class="map" id="map">
+                    <img src="https://www.fillmurray.com/640/360" ></img>
+                </div>
+
+                <!-- these are placeholders for the search results list-->
+                <ul id="results-bike">
+                    <img src="assets/images/bike-orange-small.svg" height="36px" alt="Bike Theft Location"> 
+                    <h3>Bike Crimes</h3>
+                    <li>
+                        quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </li>
+
+                    <li>
+                    quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat.
+                    </li>   
+                </ul>
+
+                <ul id="results-accidents">
+                    <img src="assets/images/bike-red-small.svg" height="36px" alt="Bike Accidents Location"> 
+                    <h3>Bike Accidents</h3>
+                    <li>
+                        quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </li>
+
+                    <li>
+                        quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </li>
+                </ul>
+
+                <ul id="results-theft">
+                    <img src="assets/images/bike-purple-small.svg" height="36px" alt="Bike Theft Location"> 
+                    <h3>Bike Theft</h3>
+                    <li>
+                        quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </li>
+
+                    <li>
+                        quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </li>
+                </ul>
+
+            </section>
+        </div>
+    </main>
+</div>
+
+<script src="./assets/js/script.js"></script>
+
+<!-- closing tags for the main grid and header -->
+</body>
+</html>
